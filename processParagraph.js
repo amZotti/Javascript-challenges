@@ -7,9 +7,9 @@ function determineTag(p){
 }
 
 function replaceTags(p,tagNumber){
-  var header = "h" + tagNumber;
+  var type  = "h" + tagNumber;
   var content = p.slice(tagNumber,p.length)
-  return header,content;
+  return [content,type];
 }
 
 
@@ -21,12 +21,12 @@ function processParagraph(p){
   }
 
   else{
-    var header = "p";
+    var type = "p";
     var content = p;
-    return (header,content)
+    return ([content,type])
   }
 }
 //Only returns content not tags
 //temporarily array for viewing in browser
-console.log([processParagraph("%%%Oy mate welcome")]);
+console.log(processParagraph("%%%Oy mate welcome"));
 
