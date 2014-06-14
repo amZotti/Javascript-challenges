@@ -41,3 +41,11 @@ function sum(number_array){
 //base = 0
 //number_array = userInput
 //element = each element within the number array
+
+function map(action,array){
+  var result = [];
+  forEach(array,function(element){
+    result.push(action(element));
+  });
+  return result;
+}
