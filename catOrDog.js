@@ -10,7 +10,10 @@ nextImage();
 $(function() {
   $("#dog").submit(function(){
     checkIfDog(answer);
-    if (notEndOfGame()) {
+    if (endOfGameCheck()) {
+      endGame();
+    }
+    else {
       nextImage();
     }
     return false;
@@ -18,12 +21,15 @@ $(function() {
 
   $("#cat").submit(function(){
     checkIfCat(answer);
-    if (notEndOfGame()) {
+
+    if (endOfGameCheck()) {
+      endGame();
+    }
+    else {
       nextImage();
     }
-    return false;
-  });
-});
+  return false
+   });
 
 function checkIfDog(answer){
   if (answer == true) {
@@ -65,16 +71,14 @@ function updateScore(){
   $("#score").html(counter);
 }
 
-function notEndOfGame(){
-  if (i == pets.length) {
-    $("img").fadeOut();
-    $("#dog").fadeOut();
-    $("#cat").fadeOut();
-    $("#correct").fadeOut();
-    $("h3").html("Final score: ");
-    $("#endOfGameMsg").html("Alright, that's all you get for now. Good game!");
-  }
-  else {
-    return true;
-  }
+function endOfGameCheck(){
+  return (i == pets.length);
+} 
+function endGame() {
+  $("img").fadeOut();
+  $("#dog").fadeOut();
+  $("#cat").fadeOut();
+  $("#correct").fadeOut();
+  $("h3").html("Final score: ");
+  $("#endOfGameMsg").html("Alright, that's all you get for now. Good game!");
 }
