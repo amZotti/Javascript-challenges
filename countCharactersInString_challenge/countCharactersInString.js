@@ -1,4 +1,4 @@
-function count (string) {  
+function count(string) {
   var letterCount = {};
   for (var i = 0;i < string.length; i++) {
     if (letterCount[string[i]]) {
