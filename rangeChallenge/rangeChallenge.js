@@ -1,10 +1,10 @@
 function range(start, end, step) {
-  var settings = generateSettings(start, end, step, arguments);
+  var settings = generateSettings(start, end, step);
   return generateRange(settings);
 }
 
 function generateRange(settings) {
-  rangeValues = [];
+  var rangeValues = [];
   if (settings.step == 0)
     return duplicativeArray(rangeValues, settings);
   else
@@ -25,25 +25,26 @@ function duplicativeArray(rangeValues, settings) {
   return rangeValues;
 }
 
-function generateSettings(start, end, step, arguments) {
+function generateSettings(start, end, step) {
     var settings = initializeSettings(start, end, step);
 
-    if (arguments.length == 1) {
+    if ( ! settings.end ) {
     settings.end = start;
     settings.start = 0;
     settings.step = 1;
   }
-  else if (arguments.length == 2) {
+  else if ( ! settings.step ) {
     settings.step = 1;
   }
   return settings;
 }
 
 function initializeSettings(start, end, step) {
-  settings = {};
-  settings.start = start;
-  settings.end = end;
-  settings.step = step;
+  settings = {
+    start:start,
+    end: end,
+    step: step
+  };
   return settings;
 }
 
