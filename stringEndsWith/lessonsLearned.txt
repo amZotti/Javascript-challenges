@@ -1,0 +1,22 @@
+I want the following regular expression:
+
+/(ending)$/
+
+Where ending is a variable. I discovered that to use variables with regular expressions I must use regular expression constructors. So I tried:
+
+var pattern =newRegExp((ending)$);
+
+But this does not work either! This works if I do not include the grouping parenthesis and dollar sign, but I need those special characters as part of my pattern!
+
+I tried to wrap the special characters in quotations, and also cancel them out by using a backslash, but nothing seems to work! What should I do to include special characters in my regular expression constructor?!
+
+I asked for help and a friend told me very concisely: “You have to build a string to use the RegExp constructor“.  And then everything clicked for me.  I quickly typed out the following code:
+
+
+var regexString = "(ending)$";
+var pattern = new RegExp(regexString);
+
+To my dismay it STILL did not work. And then I realized: ‘ending’ is a variable, and I must treat it as I normally would in a string. So I finally got the correct solution which was:
+
+var regexString = "(" + ending + ")$";
+var pattern = new RegExp(regexString);
