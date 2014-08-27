@@ -1,0 +1,37 @@
+Special thanks to W3schools for providing me with this great content.
+
+Lessons Learned:
+1) Accessing XML files locally
+
+You won't be able to access the XML file from the HTML directly in chrome due to
+security settings. An easy way around this is to cd into this directory and
+launch a simple HTTP Python server, then view it from there. Use the following
+command:
+
+python -m SimpleHTTPServer
+
+2) Creating HTML content from XML 
+
+The entire HTML page is an object called document. That is why drawing tables in
+HTML we use the command document.write(...) often. Write is a method on
+document. 
+
+3) Reading from XML files
+
+request.open("GET", "filename.xml", false);
+request.send();
+print(request.responseText);
+
+4) Window Object
+
+Many methods I assued were built into Javascript are actually methods that are
+on the Window object. Frequent Window object methods are:
+alert()
+setTimeout()
+setInterval()
+print()
+etc
+
+5) Active X or XMLHttpRequest object depends on browser version
+
+Although it seems they are essentially the same
